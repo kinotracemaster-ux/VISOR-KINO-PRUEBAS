@@ -289,3 +289,4 @@ El "cómo funciona" está en `docs/ARQUITECTURA.md`; aquí solo el qué y el por
 - Rama `claude/project-thread-705w0p` (2026-11-13): tarjetas del Dashboard clicables → listado filtrado; filtros nuevos
   `estado=conportada|sinportada|hoy` y `genero` en `adminProductFilter()`.
 - Misma rama (2026-11-13): arreglo del Dashboard descuadrado tras #74 (una tarjeta quedó sin cerrar y los enlaces corridos).
+- Repo de pruebas: fondo azul oscuro (`--color-bg` #0b1420) y franja roja "VISOR de prueba" (`body::before`) para distinguirlo de producción.

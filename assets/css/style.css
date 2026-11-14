@@ -7,10 +7,10 @@
 
 /* === CSS Variables === */
 :root {
-    --color-bg: #0a0a0f;
-    --color-surface: #12121a;
-    --color-surface-2: #1a1a2e;
-    --color-surface-3: #242438;
+    --color-bg: #0b1420;
+    --color-surface: #111c2b;
+    --color-surface-2: #172638;
+    --color-surface-3: #203247;
     --color-border: rgba(255, 255, 255, 0.08);
     --color-border-hover: rgba(255, 255, 255, 0.15);
     --color-text: #e8e8f0;
@@ -56,6 +56,20 @@ body {
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+/* Copia de PRUEBAS: título rojo para no confundirla con producción */
+body::before {
+    content: "VISOR de prueba";
+    display: block;
+    padding: 0.4rem 1rem;
+    background: #b91c1c;
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-align: center;
+    text-transform: none;
 }
 
 a {
