@@ -11,7 +11,8 @@ Resumen pensado para orientarse rápido (humanos y agentes) sin leer todo el có
 - Config: `config/database.php` (`env()`, `getDB()` singleton PDO), `config/app.php` (constantes, `APP_VERSION` para cache-busting).
   La clave del admin se comprueba solo al entrar (`adminPasswordMatches`); nada de bcrypt en cada petición (costaba ~60 ms).
 - Variables clave: `GOOGLE_DRIVE_FOLDER_ID` (carpeta raíz de fotos), `GOOGLE_CLIENT_ID/SECRET/REDIRECT_URI`,
-  `GOOGLE_SHEET_ID`, `CRON_SECRET`, `WEBHOOK_SHEETS_SECRET`, `ADMIN_USER/ADMIN_PASSWORD(_HASH)`.
+  `GOOGLE_SHEET_ID`, `CRON_SECRET`, `WEBHOOK_SHEETS_SECRET`, `ADMIN_USER/ADMIN_PASSWORD(_HASH)`,
+  `DRIVE_READONLY=1` (bloquea subir/borrar en Admin → Media; `driveReadOnly()`). Visor de pruebas: `docs/CONEXION_PRUEBAS.md`.
 
 ## Rutas (`index.php`)
 | Ruta | Archivo | Qué hace |

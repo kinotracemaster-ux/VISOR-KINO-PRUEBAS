@@ -10,6 +10,11 @@ if (!verifyCsrf()) {
     redirect('/admin/media');
 }
 
+if (driveReadOnly()) {
+    $_SESSION['flash_error'] = 'Drive está en modo solo lectura (DRIVE_READONLY=1): no se suben ni borran archivos desde este visor.';
+    redirect('/admin/media');
+}
+
 $drive = new GoogleDriveService();
 
 $token = $drive->getValidToken($db);
