@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Extractor de Código y Cantidad - PDF</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>
+        <span class="icon">📑</span>
+        Extractor de Códigos PDF
+      </h1>
+      <p class="subtitle">Sube tu PDF y extrae códigos y cantidades automáticamente</p>
+    </header>
+
+    {% if error %}
+    <div class="message error">
+      <span>⚠️</span>
+      <span>{{ error }}</span>
+    </div>
+    {% endif %}
+
+    <section class="upload-section">
+      <form method="post" enctype="multipart/form-data">
+        <div class="file-input-wrapper">
+          <input type="file" name="pdf" id="pdf-input" accept="application/pdf" required>
+          <label for="pdf-input" class="file-input-label">
+            <span>📎</span>
+            <span class="file-name"></span>
+            <span class="default-text">Arrastra tu PDF aquí o haz clic para seleccionar</span>
+          </label>
+        </div>
+
+        <div class="button-group">
+          <button type="submit" class="btn-primary">
+            <span>🚀</span>
+            Procesar PDF
+          </button>
+          {% if resumen_html %}
+          <button type="button" class="btn-secondary" onclick="window.location.href='/'">
+            <span>🔄</span>
+            Limpiar
+          </button>
+          {% endif %}
+        </div>
+      </form>
+    </section>
+
+    {% if resumen_html %}
+    <section class="results-section">
+      <div class="total-count">
+        ✅ Códigos encontrados
+        <span class="number">{{ total }}</span>
+      </div>
+
+      <div class="results-header">
+        <h2>
+          <span>📊</span>
+          Resultados Detallados
+        </h2>
+        <button type="button" id="btn-copy" class="btn-copy" onclick="copyResults()">
+          <span id="copy-icon">📋</span>
+          <span id="copy-label">Copiar Resultado</span>
+        </button>
+      </div>
+
+      <textarea id="raw-result" class="hidden">{{ resumen_texto }}</textarea>
+
+      <div class="table-wrapper">
+        {{ resumen_html|safe }}
+      </div>
+    </section>
+    {% endif %}
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
