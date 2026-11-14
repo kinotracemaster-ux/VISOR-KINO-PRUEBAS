@@ -65,7 +65,7 @@ $n = fn($v) => $v === null || $v === '' ? '—' : number_format((float) $v, 0, '
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventario · Viewfinder Admin</title>
-    <style>body{background:#0a0a0f;color:#e8e8f0}</style>
+    <style>body{background:#0b1420;color:#e8e8f0}</style>
     <link rel="stylesheet" href="/assets/css/style.css?v=<?= APP_VERSION ?>">
 </head>
 
