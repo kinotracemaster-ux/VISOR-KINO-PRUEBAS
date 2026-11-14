@@ -7,7 +7,8 @@ El "cómo funciona" está en `docs/ARQUITECTURA.md`; aquí solo el qué y el por
 ## Estado actual (2026-11-09)
 - Producción: `viewfinder-k.up.railway.app` según los logs de Railway del 2026-11-10 (deploy automático desde `main`).
   `GOOGLE_REDIRECT_URI` debe usar ese mismo dominio.
-  El entorno "PRUEBAS" (`…-pruebas.up.railway.app`) no cuenta: las variables se ponen en el entorno de producción.
+  Este repo es la **copia de pruebas**: se conecta a Drive y a la hoja con sus propias variables en Railway
+  (pasos en `docs/CONEXION_PRUEBAS.md`). `DRIVE_READONLY=1` bloquea subir/borrar si usa la carpeta real.
 - Drive raíz: env `GOOGLE_DRIVE_FOLDER_ID` = carpeta **PRODUCTOS**. Se indexan todos los niveles en `drive_index`.
 - Hoja maestra: **"MAESTRA DE PRODUCTOS KINO"** (env `GOOGLE_SHEET_ID`), 3629 códigos. Revisión 2026-11-09: se lee
   completa (3629 de 3629, sin filas descartadas ni repetidas). En la hoja faltan datos: 124 filas sin PRICE_SUGGESTED (98 POEDAGAR)
@@ -290,3 +291,4 @@ El "cómo funciona" está en `docs/ARQUITECTURA.md`; aquí solo el qué y el por
   `estado=conportada|sinportada|hoy` y `genero` en `adminProductFilter()`.
 - Misma rama (2026-11-13): arreglo del Dashboard descuadrado tras #74 (una tarjeta quedó sin cerrar y los enlaces corridos).
 - Repo de pruebas: fondo azul oscuro (`--color-bg` #0b1420) y franja roja "VISOR de prueba" (`body::before`) para distinguirlo de producción.
+- Repo de pruebas (2026-11-14): `docs/CONEXION_PRUEBAS.md` (variables y pasos para conectar Drive y hoja en Railway) y `DRIVE_READONLY`.

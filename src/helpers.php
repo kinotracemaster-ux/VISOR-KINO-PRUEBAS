@@ -1156,3 +1156,12 @@ function mediaActionButtons(string $fileId, string $fileName, string $title, str
         . '<button type="button" class="media-btn media-btn-dl" data-media-action="dl" ' . $data . ' title="Descargar">⬇️<span>Descargar</span></button>'
         . '</div>';
 }
+
+/**
+ * Modo solo lectura de Drive (env DRIVE_READONLY=1, para el visor de pruebas que comparte la carpeta
+ * de producción): bloquea subir y borrar archivos desde Admin → Media. El sync sigue leyendo Drive.
+ */
+function driveReadOnly(): bool
+{
+    return env('DRIVE_READONLY', '0') === '1';
+}
